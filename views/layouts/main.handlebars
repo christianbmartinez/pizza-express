@@ -1,37 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizza</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-
-<body>
-  <header>
-    <h1>Welcome to Pizza Express</h1>
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
-  </nav>
-  <main>
-    <aside>
-      <h2>Our Menu</h2>
-    </aside>
-    <div class="menu">
-      {{{body}}}
-    </div>
-  </main>
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
-
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <script src='https://cdn.tailwindcss.com'></script>
+    <title>Pizza Express</title>
+  </head>
+  <body>
+    <header class='bg-white h-[15vh]'>
+      <nav
+        class='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'
+        aria-label='Global'
+      >
+        <div class='flex lg:flex-1'>
+          <a href='/' class='-m-1.5 p-1.5'>
+            <span class='sr-only'>Pizza Express</span>
+            <img
+              class='h-12 w-auto'
+              src='https://i.pinimg.com/originals/39/1c/4c/391c4c2a630980c8cb5c382d04c08309.jpg'
+              alt='Pizza Express Logo'
+            />
+          </a>
+        </div>
+        <div class='flex gap-x-12'>
+          <a
+            href='/'
+            class='text-sm font-semibold leading-6 text-gray-900'
+          >Home</a>
+          <a
+            href='/menu'
+            class='text-sm font-semibold leading-6 text-gray-900'
+          >Menu</a>
+          <a
+            href='/order'
+            class='text-sm font-semibold leading-6 text-gray-900'
+          >Order</a>
+        </div>
+        <div class='flex lg:flex-1 lg:justify-end'>
+          {{#if logged_in}}
+            <a
+              id='logout'
+              class='text-sm cursor-pointer font-semibold leading-6 text-gray-900 cursor-pointer'
+            >Log out
+              <span aria-hidden='true'>&rarr;</span></a>
+          {{else}}
+            <a
+              href='/login'
+              class='text-sm font-semibold leading-6 text-gray-900'
+            >Log in
+              <span aria-hidden='true'>&rarr;</span></a>
+          {{/if}}
+        </div>
+      </nav>
+    </header>
+    {{{body}}}
+  </body>
 </html>
