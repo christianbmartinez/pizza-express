@@ -1,9 +1,26 @@
 const express = require('express')
+const session = require('express-session')
+const routes = require('./controllers')
+const expHps = require('express-handlebars')
+const path = require('path')
+
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.get('/', (req, res) => {
-  res.send('Hello from Pizza Express!')
-})
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+}
 
-app.listen(PORT, () => console.log(`Server is running on port:${PORT}`))
+const hbs = expHps.create()
+app.engine('handlebars', hbs.engine)
+app.set('view engine', 'handlebars')
+app.use(session(sess))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(routes)
+
+app.listen(PORT, () => console.log(`App listening on port ${PORT}...`))
