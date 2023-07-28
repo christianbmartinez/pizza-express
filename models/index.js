@@ -1,19 +1,22 @@
 const Order = require('./order');
-const Payment = require('./payment');
 const Pizza = require('./pizza');
 const Toppings = require('./topping');
 const Payment = require('./payment');
 const User = require('./user');
 
+// write relations here
+Order.belongsTo(User, { foreignKey: 'userId'});
 
+Pizza.hasMany(Toppings, { foreignKey: 'pizzaId'});
 
-User.hasMany(Project, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
-});
+Toppings.belongsTo(Pizza, {foreignKey: 'toppingId'});
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+Payment.belongsTo(User, { foreignKey: 'paymentId'})
 
-module.exports = { User, Project };
+module.exports = {
+    Order,
+    Payment,
+    Pizza,
+    Toppings,
+    User
+};
