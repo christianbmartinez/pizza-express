@@ -1,9 +1,9 @@
-const { Model, DataTypes, INTEGER } = require('sequelize')
+const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class Topping extends Model {}
+class Toppings extends Model {}
 
-Topping.init(
+Toppings.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -28,8 +28,8 @@ Topping.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'toppings',
   }
 )
 
-module.exports = Topping
+module.exports = Toppings
