@@ -10,6 +10,16 @@ router.get('/order', (req, res) => {
   res.render('order')
 })
 
+// Order item route
+router.get('/order-item', (req, res) => {
+  res.render('order')
+})
+
+// Order placed route
+router.get('/order-placed', (req, res) => {
+  res.render('order-placed')
+})
+
 // Checkout route
 router.get('/checkout', (req, res) => {
   res.render('checkout')
@@ -28,11 +38,6 @@ router.get('/login', (req, res) => {
 // Signup route
 router.get('/signup', (req, res) => {
   res.render('signup')
-})
-
-// Order placed route
-router.get('/order-placed', (req, res) => {
-  res.render('order-placed')
 })
 
 module.exports = router
