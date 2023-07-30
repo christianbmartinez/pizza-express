@@ -5,11 +5,6 @@ router.get('/', (req, res) => {
   res.render('home')
 })
 
-// Menu route
-router.get('/menu', (req, res) => {
-  res.render('menu')
-})
-
 // Order route
 router.get('/order', (req, res) => {
   res.render('order')
