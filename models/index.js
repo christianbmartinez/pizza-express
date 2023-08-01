@@ -13,7 +13,7 @@ Pizza.belongsToMany(Toppings, {
   otherKey: 'toppings_id', 
 });
 
-Toppings.belongsTo(Pizza, { foreignKey: 'toppingId' })
+Toppings.belongsTo(Pizza, { foreignKey: 'pizzaId' })
 
 Payment.belongsTo(User, { foreignKey: 'paymentId' })
 

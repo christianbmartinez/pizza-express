@@ -9,11 +9,20 @@ const userData = [
         city: 'Salt Lake City',
         state: 'Utah',
         zip_code: '84102'
+    },
+    {
+        full_name: 'Jane Doe',
+        email: 'test@gmail.com',
+        password: 'test',
+        street_name: '100 S',
+        city: 'Salt Lake City',
+        state: 'Utah',
+        zip_code: '84102'
     }
 ]
 
 const seedUsers = () => {
-    return Users.bulkCreate(userData);
+    return User.bulkCreate(userData);
   };
   
   module.exports = seedUsers;
