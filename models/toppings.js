@@ -18,6 +18,7 @@ Toppings.init(
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
+      defaultValue: 2,
       validate: {
         isDecimal: true,
       },
