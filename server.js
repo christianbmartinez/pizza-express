@@ -5,7 +5,6 @@ const expHps = require('express-handlebars')
 const path = require('path')
 
 const sequelize = require('./config/connection')
-const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -15,9 +14,6 @@ const sess = {
   cookie: { maxAge: 1800000 }, // 30 minutes
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
 }
 
 const hbs = expHps.create()

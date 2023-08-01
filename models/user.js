@@ -50,10 +50,6 @@ User.init(
       allowNull: false,
     },
     zip_code: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    zip_code: {
       type: DataTypes.NUMBER,
       allowNull: false,
     },
