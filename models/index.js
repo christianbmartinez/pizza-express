@@ -7,7 +7,11 @@ const User = require('./user')
 // write relations here
 Order.belongsTo(User, { foreignKey: 'userId' })
 
-Pizza.hasMany(Toppings, { foreignKey: 'pizzaId' })
+Pizza.belongsToMany(Toppings, {
+  through: 'PizzaToppings', 
+  foreignKey: 'pizza_id', 
+  otherKey: 'toppings_id', 
+});
 
 Toppings.belongsTo(Pizza, { foreignKey: 'toppingId' })
 
