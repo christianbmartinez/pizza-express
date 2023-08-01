@@ -11,3 +11,9 @@ const userData = [
         zip_code: '84102'
     }
 ]
+
+const seedUsers = () => {
+    return Users.bulkCreate(userData);
+  };
+  
+  module.exports = seedUsers;
