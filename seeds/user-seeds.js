@@ -13,7 +13,7 @@ const userData = [
 ]
 
 const seedUsers = () => {
-    return Users.bulkCreate(userData);
+    return User.bulkCreate(userData);
   };
   
   module.exports = seedUsers;

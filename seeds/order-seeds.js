@@ -2,7 +2,7 @@ const { Order } = require('../models');
 
 const orderData = [
   {
-    order_date: '2023-07-27 12:30:00', 
+    order_date: '2023-07-27', 
     total_price: 24.99,
     userId: 1, 
     pizzaId: 1, 
