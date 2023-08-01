@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class Pizza extends Model {}
+class Toppings extends Model {}
 
-Pizza.init(
+Toppings.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,29 +15,11 @@ Pizza.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
-    },
-    topping: {
-      type: DataTypes.STRING,
-      references: {
-        model: 'toppings',
-        key: 'id',
-      },
-    },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
         isDecimal: true,
-      },
-    },
-    stock: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
-      validate: {
-        isNumeric: true,
       },
     },
   },
@@ -46,8 +28,8 @@ Pizza.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'pizza',
+    modelName: 'toppings',
   }
 )
 
-module.exports = Pizza
+module.exports = Toppings
