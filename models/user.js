@@ -37,6 +37,22 @@ User.init(
         len: [6], // Minimum password length
       },
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      street: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      city: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      zip_code: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    },
   },
   {
     hooks: {

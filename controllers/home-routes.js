@@ -12,7 +12,7 @@ router.get('/order', (req, res) => {
 
 // Order item route
 router.get('/order-item', (req, res) => {
-  res.render('order')
+  res.render('order-item')
 })
 
 // Order placed route
