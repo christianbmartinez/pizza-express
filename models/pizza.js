@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config/connection')
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Pizza extends Model {}
 
@@ -17,13 +17,6 @@ Pizza.init(
     },
     description: {
       type: DataTypes.STRING,
-    },
-    topping: {
-      type: DataTypes.STRING,
-      references: {
-        model: 'toppings',
-        key: 'id',
-      },
     },
     price: {
       type: DataTypes.DECIMAL,
@@ -46,8 +39,8 @@ Pizza.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'pizza',
+    modelName: 'pizza', 
   }
-)
+);
 
-module.exports = Pizza
+module.exports = Pizza;
