@@ -9,7 +9,7 @@ const orderData = [
     paymentId: 1, 
   },
   {
-    order_date: '2023-07-27 17:45:00', 
+    order_date: '2023-07-27', 
     total_price: 19.99,
     userId: 2, 
     pizzaId: 2, 
