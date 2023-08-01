@@ -45,6 +45,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     zip_code: {
       type: DataTypes.STRING,
       allowNull: false,
