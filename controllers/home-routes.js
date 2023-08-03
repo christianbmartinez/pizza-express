@@ -2,42 +2,74 @@ const router = require('express').Router()
 
 // Homepage route
 router.get('/', (req, res) => {
-  res.render('home')
+  if (req.session.logged_in) {
+    res.render('home', { logged_in: true })
+  } else {
+    res.render('home')
+  }
 })
 
 // Order route
 router.get('/order', (req, res) => {
-  res.render('order')
+  if (req.session.logged_in) {
+    res.render('order', { logged_in: true })
+  } else {
+    res.render('login')
+  }
 })
 
 // Order item route
 router.get('/order-item', (req, res) => {
-  res.render('order-item')
+  if (req.session.logged_in) {
+    res.render('order-item', { logged_in: true })
+  } else {
+    res.render('login')
+  }
 })
 
 // Order placed route
 router.get('/order-placed', (req, res) => {
-  res.render('order-placed')
+  if (req.session.logged_in) {
+    res.render('order-placed', { logged_in: true })
+  } else {
+    res.render('login')
+  }
 })
 
 // Checkout route
 router.get('/checkout', (req, res) => {
-  res.render('checkout')
+  if (req.session.logged_in) {
+    res.render('checkout', { logged_in: true })
+  } else {
+    res.render('login')
+  }
 })
 
 // Cart route
 router.get('/cart', (req, res) => {
-  res.render('cart')
+  if (req.session.logged_in) {
+    res.render('cart', { logged_in: true })
+  } else {
+    res.render('login')
+  }
 })
 
 // Login route
 router.get('/login', (req, res) => {
-  res.render('login')
+  if (req.session.logged_in) {
+    res.render('order', { logged_in: true })
+  } else {
+    res.render('login')
+  }
 })
 
 // Signup route
 router.get('/signup', (req, res) => {
-  res.render('signup')
+  if (req.session.logged_in) {
+    res.render('order', { logged_in: true })
+  } else {
+    res.render('signup')
+  }
 })
 
 module.exports = router
