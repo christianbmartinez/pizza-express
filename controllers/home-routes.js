@@ -36,13 +36,13 @@ router.get('/order', async (req, res) => {
 })
 
 // Order item route
-router.get('/order-item', (req, res) => {
-  if (req.session.logged_in) {
-    res.render('order-item', { logged_in: true })
-  } else {
-    res.render('login')
-  }
-})
+//router.get('/order-item', (req, res) => {
+//  if (req.session.logged_in) {
+ //   res.render('order-item', { logged_in: true })
+ // } else {
+//    res.render('login')
+  //}
+//})
 
 // Order placed route
 router.get('/order-placed', (req, res) => {
