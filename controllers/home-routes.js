@@ -14,7 +14,7 @@ router.get('/order', (req, res) => {
   if (req.session.logged_in) {
     res.render('order', { logged_in: true })
   } else {
-    res.render('login')
+    res.redirect('/login')
   }
 })
 
@@ -23,7 +23,7 @@ router.get('/order-item', (req, res) => {
   if (req.session.logged_in) {
     res.render('order-item', { logged_in: true })
   } else {
-    res.render('login')
+    res.redirect('/login')
   }
 })
 
@@ -32,7 +32,7 @@ router.get('/order-placed', (req, res) => {
   if (req.session.logged_in) {
     res.render('order-placed', { logged_in: true })
   } else {
-    res.render('login')
+    res.redirect('/login')
   }
 })
 
@@ -41,7 +41,7 @@ router.get('/checkout', (req, res) => {
   if (req.session.logged_in) {
     res.render('checkout', { logged_in: true })
   } else {
-    res.render('login')
+    res.redirect('/login')
   }
 })
 
@@ -50,7 +50,7 @@ router.get('/cart', (req, res) => {
   if (req.session.logged_in) {
     res.render('cart', { logged_in: true })
   } else {
-    res.render('login')
+    res.redirect('/login')
   }
 })
 
@@ -68,7 +68,7 @@ router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.render('order', { logged_in: true })
   } else {
-    res.render('signup')
+    res.redirect('/signup')
   }
 })
 
