@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { Payment, Pizza, Toppings, User } = require('../models')
 
 // Homepage route
 router.get('/', (req, res) => {
@@ -10,9 +11,25 @@ router.get('/', (req, res) => {
 })
 
 // Order route
-router.get('/order', (req, res) => {
+router.get('/order', async (req, res) => {
   if (req.session.logged_in) {
-    res.render('order', { logged_in: true })
+    try {
+      const getPizzas = await Pizza.findAll({
+        attributes: ['id', 'name', 'description', 'price', 'img_url'],
+      })
+
+      const pizzas = getPizzas.map((pizza) => pizza.dataValues)
+
+      if (!pizzas) {
+        res.status(404).json({ message: 'No pizzas found' })
+        return
+      }
+
+      res.render('order', { pizzas, logged_in: true })
+    } catch (err) {
+      console.log(err)
+      res.status(500).json(err)
+    }
   } else {
     res.render('login')
   }
