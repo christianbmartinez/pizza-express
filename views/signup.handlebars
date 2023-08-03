@@ -1,4 +1,4 @@
-<div class='flex h-[85vh] flex-col justify-center px-6 py-12 lg:px-8'>
+<div class='flex h-full flex-col justify-center px-6 py-12 lg:px-8'>
   <div class='sm:mx-auto sm:w-full sm:max-w-sm'>
     <h2
       class='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'
@@ -9,7 +9,7 @@
     <form class='space-y-6' action='/api/users/signup' method='POST'>
       <div>
         <label
-          for='name'
+          for='full_name'
           class='block text-sm font-medium leading-6 text-gray-900'
         >Full Name</label>
         <div class='mt-2'>
@@ -57,6 +57,128 @@
             required
             class='block bg-gray-50 w-full rounded-md border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
           />
+        </div>
+      </div>
+
+      <div>
+        <label
+          for='street_name'
+          class='block text-sm font-medium leading-6 text-gray-900'
+        >Street Name</label>
+        <div class='mt-2'>
+          <input
+            id='street_name'
+            name='street_name'
+            type='text'
+            autocomplete='off'
+            required
+            class='block bg-gray-50 w-full rounded-md border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+          />
+        </div>
+      </div>
+
+      <div>
+        <label
+          for='city'
+          class='block text-sm font-medium leading-6 text-gray-900'
+        >City</label>
+        <div class='mt-2'>
+          <input
+            id='city'
+            name='city'
+            type='text'
+            autocomplete='off'
+            required
+            class='block bg-gray-50 w-full rounded-md border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+          />
+        </div>
+      </div>
+
+      <div class='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+        <div class='sm:col-span-3'>
+          <label
+            for='state'
+            class='block text-sm font-medium leading-6 text-gray-900'
+          >State</label>
+          <div class='mt-2'>
+            <select
+              id='state'
+              name='state'
+              type='text'
+              autocomplete='off'
+              required
+              class='block bg-gray-50 w-full rounded-md border-0 py-2.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+            >
+              <option value='AL'>AL</option>
+              <option value='AK'>AK</option>
+              <option value='AR'>AR</option>
+              <option value='AZ'>AZ</option>
+              <option value='CA'>CA</option>
+              <option value='CO'>CO</option>
+              <option value='CT'>CT</option>
+              <option value='DC'>DC</option>
+              <option value='DE'>DE</option>
+              <option value='FL'>FL</option>
+              <option value='GA'>GA</option>
+              <option value='HI'>HI</option>
+              <option value='IA'>IA</option>
+              <option value='ID'>ID</option>
+              <option value='IL'>IL</option>
+              <option value='IN'>IN</option>
+              <option value='KS'>KS</option>
+              <option value='KY'>KY</option>
+              <option value='LA'>LA</option>
+              <option value='MA'>MA</option>
+              <option value='MD'>MD</option>
+              <option value='ME'>ME</option>
+              <option value='MI'>MI</option>
+              <option value='MN'>MN</option>
+              <option value='MO'>MO</option>
+              <option value='MS'>MS</option>
+              <option value='MT'>MT</option>
+              <option value='NC'>NC</option>
+              <option value='NE'>NE</option>
+              <option value='NH'>NH</option>
+              <option value='NJ'>NJ</option>
+              <option value='NM'>NM</option>
+              <option value='NV'>NV</option>
+              <option value='NY'>NY</option>
+              <option value='ND'>ND</option>
+              <option value='OH'>OH</option>
+              <option value='OK'>OK</option>
+              <option value='OR'>OR</option>
+              <option value='PA'>PA</option>
+              <option value='RI'>RI</option>
+              <option value='SC'>SC</option>
+              <option value='SD'>SD</option>
+              <option value='TN'>TN</option>
+              <option value='TX'>TX</option>
+              <option value='UT'>UT</option>
+              <option value='VT'>VT</option>
+              <option value='VA'>VA</option>
+              <option value='WA'>WA</option>
+              <option value='WI'>WI</option>
+              <option value='WV'>WV</option>
+              <option value='WY'>WY</option>
+            </select>
+          </div>
+        </div>
+
+        <div class='sm:col-span-3'>
+          <label
+            for='zip_code'
+            class='block text-sm font-medium leading-6 text-gray-900'
+          >Zip Code</label>
+          <div class='mt-2'>
+            <input
+              id='zip_code'
+              name='zip_code'
+              type='text'
+              autocomplete='off'
+              required
+              class='block bg-gray-50 w-full rounded-md border-0 py-2 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6'
+            />
+          </div>
         </div>
       </div>
 
