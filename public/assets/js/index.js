@@ -6,3 +6,8 @@ const logout = async () => {
   })
   window.location.replace('/login')
 }
+
+// Takes the user back one page
+const goBack = () => {
+  history.go(-1)
+}
