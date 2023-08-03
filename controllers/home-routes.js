@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { Payment, Pizza, Toppings, User } = require('../models')
 
 // Homepage route
 router.get('/', (req, res) => {
@@ -10,11 +11,27 @@ router.get('/', (req, res) => {
 })
 
 // Order route
-router.get('/order', (req, res) => {
+router.get('/order', async (req, res) => {
   if (req.session.logged_in) {
-    res.render('order', { logged_in: true })
+    try {
+      const getPizzas = await Pizza.findAll({
+        attributes: ['id', 'name', 'description', 'price', 'img_url'],
+      })
+
+      const pizzas = getPizzas.map((pizza) => pizza.dataValues)
+
+      if (!pizzas) {
+        res.status(404).json({ message: 'No pizzas found' })
+        return
+      }
+
+      res.render('order', { pizzas, logged_in: true })
+    } catch (err) {
+      console.log(err)
+      res.status(500).json(err)
+    }
   } else {
-    res.redirect('/login')
+    res.render('login')
   }
 })
 
@@ -23,7 +40,7 @@ router.get('/order-item', (req, res) => {
   if (req.session.logged_in) {
     res.render('order-item', { logged_in: true })
   } else {
-    res.redirect('/login')
+    res.render('login')
   }
 })
 
@@ -32,7 +49,7 @@ router.get('/order-placed', (req, res) => {
   if (req.session.logged_in) {
     res.render('order-placed', { logged_in: true })
   } else {
-    res.redirect('/login')
+    res.render('login')
   }
 })
 
@@ -41,7 +58,7 @@ router.get('/checkout', (req, res) => {
   if (req.session.logged_in) {
     res.render('checkout', { logged_in: true })
   } else {
-    res.redirect('/login')
+    res.render('login')
   }
 })
 
@@ -50,7 +67,7 @@ router.get('/cart', (req, res) => {
   if (req.session.logged_in) {
     res.render('cart', { logged_in: true })
   } else {
-    res.redirect('/login')
+    res.render('login')
   }
 })
 
@@ -68,7 +85,7 @@ router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.render('order', { logged_in: true })
   } else {
-    res.redirect('/signup')
+    res.render('signup')
   }
 })
 
