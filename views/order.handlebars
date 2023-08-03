@@ -17,197 +17,39 @@
       </div>
     </div>
     <div class='mt-10 grid lg:grid-cols-2 gap-x-8 gap-y-8 items-center'>
-      <div
-        class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'
-      >
-        <img
-          class='group-hover:opacity-60 transition duration-500 rounded-lg'
-          src='https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-          alt='The Supreme'
-        />
+      {{#each pizzas}}
         <div
-          class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'
+          class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'
         >
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'
-            >The Supreme</p>
-          </div>
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'
-            >$12.50</p>
-          </div>
-        </div>
-        <div class='absolute py-6 flex justify-center bottom-4'>
-          <a
-            class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
-            href='/api/orders/item/{{this.id}}'
+          <img
+            class='group-hover:opacity-60 transition duration-500 rounded-lg'
+            src='{{this.img_url}}'
+            alt='Pizza Express | {{this.name}}'
+          />
+          <div
+            class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'
           >
-            Order Now
-          </a>
-        </div>
-      </div>
-
-      <div
-        class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'
-      >
-        <img
-          class='group-hover:opacity-60 transition duration-500 rounded-lg'
-          src='https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-          alt='The Supreme'
-        />
-        <div
-          class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'
-        >
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'
-            >Spicy Pepperoni</p>
+            <div>
+              <p
+                class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'
+              >{{this.name}}</p>
+            </div>
+            <div>
+              <p
+                class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'
+              >${{this.price}}</p>
+            </div>
           </div>
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'
-            >$13.50</p>
+          <div class='absolute py-6 flex justify-center bottom-4'>
+            <a
+              class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+              href='/api/orders/item/{{this.id}}'
+            >
+              Order Now
+            </a>
           </div>
         </div>
-        <div class='absolute py-6 flex justify-center bottom-4'>
-          <a
-            class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
-            href='/api/orders/item/{{this.id}}'
-          >
-            Order Now
-          </a>
-        </div>
-      </div>
-
-      <div
-        class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'
-      >
-        <img
-          class='group-hover:opacity-60 transition duration-500 rounded-lg'
-          src='https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-          alt='The Supreme'
-        />
-        <div
-          class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'
-        >
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'
-            >Classic Cheese</p>
-          </div>
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'
-            >$11.50</p>
-          </div>
-        </div>
-        <div class='absolute py-6 flex justify-center bottom-4'>
-          <a
-            class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
-            href='/api/orders/item/{{this.id}}'
-          >
-            Order Now
-          </a>
-        </div>
-      </div>
-
-      <div
-        class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'
-      >
-        <img
-          class='group-hover:opacity-60 transition duration-500 rounded-lg'
-          src='https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-          alt='The Supreme'
-        />
-        <div
-          class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'
-        >
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'
-            >Margarita</p>
-          </div>
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'
-            >$12.50</p>
-          </div>
-        </div>
-        <div class='absolute py-6 flex justify-center bottom-4'>
-          <a
-            class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
-            href='/api/orders/item/{{this.id}}'
-          >
-            Order Now
-          </a>
-        </div>
-      </div>
-
-      <div
-        class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'
-      >
-        <img
-          class='group-hover:opacity-60 transition duration-500 rounded-lg'
-          src='https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-          alt='The Supreme'
-        />
-        <div
-          class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'
-        >
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'
-            >Meat Lovers</p>
-          </div>
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'
-            >$12.50</p>
-          </div>
-        </div>
-        <div class='absolute py-6 flex justify-center bottom-4'>
-          <a
-            class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
-            href='/api/orders/item/{{this.id}}'
-          >
-            Order Now
-          </a>
-        </div>
-      </div>
-
-      <div
-        class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'
-      >
-        <img
-          class='group-hover:opacity-60 transition duration-500 rounded-lg'
-          src='https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-          alt='The Supreme'
-        />
-        <div
-          class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'
-        >
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'
-            >The Hawaiian</p>
-          </div>
-          <div>
-            <p
-              class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'
-            >$12.50</p>
-          </div>
-        </div>
-        <div class='absolute py-6 flex justify-center bottom-4'>
-          <a
-            class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
-            href='/api/orders/item/{{this.id}}'
-          >
-            Order Now
-          </a>
-        </div>
-      </div>
+      {{/each}}
     </div>
   </div>
 </div>
