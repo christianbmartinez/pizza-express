@@ -72,4 +72,13 @@ router.get('/signup', (req, res) => {
   }
 })
 
+// Wildcard route
+router.get('*', (req, res) => {
+  if (req.session.logged_in) {
+    res.render('not-found', { logged_in: true })
+  } else {
+    res.render('not-found')
+  }
+})
+
 module.exports = router
