@@ -20,6 +20,8 @@ router.get('/order', async (req, res) => {
 
       const pizzas = getPizzas.map((pizza) => pizza.dataValues)
 
+      console.log(pizzas)
+
       if (!pizzas) {
         res.status(404).json({ message: 'No pizzas found' })
         return

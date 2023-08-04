@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { Payment, Pizza, Toppings, User, Order } = require('../../models')
 
+
 router.get('/item/:id', async (req, res) => {
   if (req.session.logged_in) {
     try {
@@ -24,7 +25,8 @@ router.get('/item/:id', async (req, res) => {
     }
   }
   else {
-    res.render('login');
+    res.render('login')
+  
 
   }
 })
