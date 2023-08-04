@@ -40,14 +40,6 @@ Order.init(
         key: 'id',
       },
     },
-    paymentId: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'payment',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,

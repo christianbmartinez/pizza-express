@@ -13,13 +13,16 @@ const goBack = () => {
 }
 
 // Add order item to cart
-const addToCart = async (id) => {
+const addToCart = async (id, price) => {
+  const data = {
+    id: id,
+    total_price: price,
+    pizza_id: id,
+  }
   await fetch(`/api/orders/${id}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: {
-      id: id,
-    },
+    body: JSON.stringify(data),
   })
   window.location.replace('/checkout')
 }

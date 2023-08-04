@@ -33,7 +33,7 @@ router.get('/item/:id', async (req, res) => {
 })
 
 router.post('/:id', async (req, res) => {
-  console.log(req.body)
+  console.log('Request Body', req.body)
   if (req.session.logged_in) {
     try {
       const newOrder = await Order.create({
