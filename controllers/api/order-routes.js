@@ -31,14 +31,14 @@ router.get('/item/:id', async (req, res) => {
     res.render('login')
   }
 })
-
+// We need to successfully create an order hitting this route
 router.post('/:id', async (req, res) => {
-  console.log('Request Body', req.body)
   if (req.session.logged_in) {
     try {
       const newOrder = await Order.create({
-        ...req.body,
-        user_id: req.session.user_id,
+        total_price: req.body.total_price,
+        pizzaId: req.params.id,
+        userId: req.session.user_id,
       })
 
       console.log('Order Created: ', newOrder)
