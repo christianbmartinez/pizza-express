@@ -20,8 +20,6 @@ router.get('/order', async (req, res) => {
 
       const pizzas = getPizzas.map((pizza) => pizza.dataValues)
 
-      console.log(pizzas)
-
       if (!pizzas) {
         res.status(404).json({ message: 'No pizzas found' })
         return
@@ -36,15 +34,6 @@ router.get('/order', async (req, res) => {
     res.render('login')
   }
 })
-
-// Order item route
-//router.get('/order-item', (req, res) => {
-//  if (req.session.logged_in) {
- //   res.render('order-item', { logged_in: true })
- // } else {
-//    res.render('login')
-  //}
-//})
 
 // Order placed route
 router.get('/order-placed', (req, res) => {

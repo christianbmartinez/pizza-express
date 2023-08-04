@@ -3,7 +3,8 @@ const { Pizza } = require('../models')
 const pizzaData = [
   {
     name: 'Margherita',
-    description: 'Classic tomato, mozzarella, and basil',
+    description:
+      'Celebrate your tastebuds with our delicious Margherita pizza! A freshly baked crust topped with fresh basil, rich tomatoes, and our signature margy sauce.',
     price: 12.99,
     ingredients: ['Tomato sauce', 'Mozzarella cheese', 'Fresh basil'],
     img_url:
