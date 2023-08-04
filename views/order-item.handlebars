@@ -1,6 +1,26 @@
-<p>This is the view that will be rendered when a customer clicks on an item from
-  the /orders page. It will get the pizza item by id and render it. It can show
-  options for the toppings and gives the user a choice to add toppings etc.</p>
 
-Testing id:
-{{id}}
+<div class='mt-10 grid lg:grid-cols-2 gap-x-8 gap-y-8 items-center'>
+
+  <div
+    class='shadow-lg group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-32 px-10 flex justify-center items-center rounded-lg'>
+    <img class='group-hover:opacity-60 transition duration-500 rounded-lg' src='{{pizza.img_url}}'
+      alt='Pizza Express | {{pizza.name}}' />
+    <div class='absolute sm:top-8 top-4 flex justify-center text-center flex-col space-y-2'>
+      <div>
+        <p class='group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600 pt-4 md:pt-0'>
+          {{pizza.name}}</p>
+      </div>
+      <div>
+        <p class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'>
+          ${{pizza.price}}</p>
+      </div>
+    </div>
+    <div class='absolute py-6 flex justify-center bottom-4'>
+      <a class='bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+        href='/api/orders/item/{{pizza.id}}'>
+        Order Now
+      </a>
+    </div>
+  </div>
+
+</div>

@@ -5,4 +5,4 @@ const orderRoutes = require('./order-routes')
 router.use('/users', userRoutes)
 router.use('/orders', orderRoutes)
 
-module.exports = router
+module.exports = router;
