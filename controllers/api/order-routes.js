@@ -2,19 +2,25 @@ const router = require('express').Router()
 const { Payment, Pizza, Toppings, User, Order } = require('../../models')
 
 router.get('/item/:id', async (req, res) => {
+  if (req.session.logged_in) {
   try {
-    const orderData = await Pizza.findOne({ where: { id: req.params.id } });
-
-    if (!orderData) {
-      res.status(404).json({ message: 'no order found with that id' });
+    const getPizzabyId = await Pizza.findOne({ where: { id: req.params.id } });
+    
+    const pizza = getPizzabyId.get({plain:true});
+    if (!pizza) {
+      res.status(404).json({ message: 'no pizza found with that id' });
       return;
     }
 
-    res.render('order-item', orderData);
+    res.render('order-item', { pizza, logged_in: true });
   } catch (err) {
     res.status(500).json(err);
   }
-
+}
+  else {
+    res.render('login')
+  
+  }
 })
 
 router.post('/', async (req, res) => {
