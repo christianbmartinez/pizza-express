@@ -47,6 +47,7 @@ router.get('/order-placed', (req, res) => {
 // Checkout route
 router.get('/checkout', async (req, res) => {
   if (req.session.logged_in) {
+    console.log('\x1b[32m Testing /checkout')
     try {
       const findOrder = await Order.findOne({
         where: {
@@ -56,30 +57,29 @@ router.get('/checkout', async (req, res) => {
         order: [['order_date', 'DESC']],
       })
 
-      const findPizza = await Pizza.findOne({
-        where: {
-          id: findOrder.dataValues.pizzaId,
-        },
-        attributes: ['id', 'name', 'description', 'price', 'img_url'],
-      })
+      if (findOrder === null) {
+        res.render('checkout', { logged_in: true })
+      } else {
+        const findPizza = await Pizza.findOne({
+          where: {
+            id: findOrder.dataValues.pizzaId,
+          },
+          attributes: ['id', 'name', 'description', 'price', 'img_url'],
+        })
 
-      const findUser = await User.findOne({
-        where: {
-          id: req.session.user_id,
-        },
-        attributes: ['full_name', 'street_name', 'city', 'state', 'zip_code'],
-      })
+        const findUser = await User.findOne({
+          where: {
+            id: req.session.user_id,
+          },
+          attributes: ['full_name', 'street_name', 'city', 'state', 'zip_code'],
+        })
 
-      if (!findOrder || !findUser) {
-        res.status(404).json({ message: 'no order or user found' })
-        return
+        const order = findOrder.get({ plain: true })
+        const pizza = findPizza.get({ plain: true })
+        const user = findUser.get({ plain: true })
+
+        res.render('checkout', { order, user, pizza, logged_in: true })
       }
-
-      const order = findOrder.get({ plain: true })
-      const pizza = findPizza.get({ plain: true })
-      const user = findUser.get({ plain: true })
-
-      res.render('checkout', { order, user, pizza, logged_in: true })
     } catch (err) {
       res.status(500).json(err)
     }
