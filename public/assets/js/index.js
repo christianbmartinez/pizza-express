@@ -24,3 +24,25 @@ const addToCart = async (pizzaId, price) => {
   })
   window.location.replace('/checkout')
 }
+// Render the order placed view after checkout
+const placeOrder = () => {
+  window.location.replace('/order-placed')
+}
+// Delete an order
+const deleteOrder = async (id) => {
+  await fetch(`/api/orders/${id}`, {
+    method: 'DELETE',
+  })
+  window.location.replace('/checkout')
+}
+// Toggles shipping text when they are choosing an option
+const changeShippingText = (option) => {
+  const shippingText = document.getElementById('shipping')
+  if (option === 1) {
+    shippingText.innerText = 'Free Delivery - $0.00'
+  } else if (option === 2) {
+    shippingText.innerText = 'Store Pickup - $0.00'
+  } else {
+    return
+  }
+}

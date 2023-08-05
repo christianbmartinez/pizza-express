@@ -41,8 +41,6 @@ router.post('/:id', async (req, res) => {
         userId: req.session.user_id,
       })
 
-      console.log(newOrder)
-
       res.redirect('/checkout')
     } catch (err) {
       res.status(400).json(err)
