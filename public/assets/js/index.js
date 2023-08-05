@@ -1,5 +1,3 @@
-const shippingText = document.getElementById('shipping')
-
 // Logout the user
 const logout = async () => {
   await fetch('/api/users/logout', {
@@ -32,11 +30,11 @@ const placeOrder = () => {
 }
 
 const changeShippingText = (option) => {
-  console.log('Clicked', option)
-  if (option === 'free') {
-    shippingText.innerHTML = 'Free Delivery - $0.00'
-  } else if (option === 'pickup') {
-    shippingText.innerHTML = 'Store Pickup - $0.00'
+  const shippingText = document.getElementById('shipping')
+  if (option === 1) {
+    shippingText.innerText = 'Free Delivery - $0.00'
+  } else if (option === 2) {
+    shippingText.innerText = 'Store Pickup - $0.00'
   } else {
     return
   }
