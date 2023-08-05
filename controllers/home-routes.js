@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Payment, Pizza, Toppings, User } = require('../models')
+const { Pizza, Toppings, User, Order } = require('../models')
 
 // Homepage route
 router.get('/', (req, res) => {
@@ -45,9 +45,27 @@ router.get('/order-placed', (req, res) => {
 })
 
 // Checkout route
-router.get('/checkout', (req, res) => {
+router.get('/checkout', async (req, res) => {
   if (req.session.logged_in) {
-    res.render('checkout', { logged_in: true })
+    try {
+      const order = await Order.findOne({
+        where: {
+          id: req.params.id,
+        },
+        attributes: ['id', 'name', 'description', 'price', 'img_url'],
+      })
+
+      if (!order) {
+        res.status(404).json({ message: 'no order found with that user id' })
+        return
+      }
+
+      console.log(order)
+
+      res.render('checkout', { order, logged_in: true })
+    } catch (err) {
+      res.status(500).json(err)
+    }
   } else {
     res.render('login')
   }
