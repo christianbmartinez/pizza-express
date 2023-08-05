@@ -50,7 +50,7 @@ router.get('/checkout', async (req, res) => {
     try {
       const order = await Order.findOne({
         where: {
-          id: req.params.id,
+          userId: req.session.user_id,
         },
         attributes: ['id', 'name', 'description', 'price', 'img_url'],
       })
