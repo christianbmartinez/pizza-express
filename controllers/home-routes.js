@@ -52,8 +52,15 @@ router.get('/checkout', async (req, res) => {
         where: {
           userId: req.session.user_id,
         },
-        attributes: ['id', 'order_date', 'total_price'],
+        attributes: ['id', 'order_date', 'total_price', 'pizzaId'],
         order: [['order_date', 'DESC']],
+      })
+
+      const findPizza = await Pizza.findOne({
+        where: {
+          id: findOrder.dataValues.pizzaId,
+        },
+        attributes: ['id', 'name', 'description', 'price', 'img_url'],
       })
 
       const findUser = await User.findOne({
@@ -69,11 +76,12 @@ router.get('/checkout', async (req, res) => {
       }
 
       const order = findOrder.get({ plain: true })
+      const pizza = findPizza.get({ plain: true })
       const user = findUser.get({ plain: true })
 
-      console.log('ORDER: ', order, 'USER: ', user)
+      console.log('ORDER: ', order, 'USER: ', user, 'PIZZA: ', pizza)
 
-      res.render('checkout', { order, user, logged_in: true })
+      res.render('checkout', { order, user, pizza, logged_in: true })
     } catch (err) {
       res.status(500).json(err)
     }
