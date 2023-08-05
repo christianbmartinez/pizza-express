@@ -90,15 +90,6 @@ router.get('/checkout', async (req, res) => {
   }
 })
 
-// Cart route
-router.get('/cart', (req, res) => {
-  if (req.session.logged_in) {
-    res.render('cart', { logged_in: true })
-  } else {
-    res.render('login')
-  }
-})
-
 // Login route
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {

@@ -1,3 +1,5 @@
+const shippingText = document.getElementById('shipping')
+
 // Logout the user
 const logout = async () => {
   await fetch('/api/users/logout', {
@@ -23,4 +25,19 @@ const addToCart = async (pizzaId, price) => {
     body: JSON.stringify(data),
   })
   window.location.replace('/checkout')
+}
+
+const placeOrder = () => {
+  window.location.replace('/order-placed')
+}
+
+const changeShippingText = (option) => {
+  console.log('Clicked', option)
+  if (option === 'free') {
+    shippingText.innerHTML = 'Free Delivery - $0.00'
+  } else if (option === 'pickup') {
+    shippingText.innerHTML = 'Store Pickup - $0.00'
+  } else {
+    return
+  }
 }
