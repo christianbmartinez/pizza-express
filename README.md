@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-![alt text](https://github.com/christianbmartinez/tech-blog/blob/main/public/assets/img/pizza-express.jpg)
+![alt text](https://github.com/christianbmartinez/pizza-express/blob/main/public/assets/img/pizza-express.jpg)
 
 # Tech Blog
 
