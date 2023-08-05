@@ -48,21 +48,32 @@ router.get('/order-placed', (req, res) => {
 router.get('/checkout', async (req, res) => {
   if (req.session.logged_in) {
     try {
-      const order = await Order.findOne({
+      const findOrder = await Order.findOne({
         where: {
           userId: req.session.user_id,
         },
-        attributes: ['id', 'name', 'description', 'price', 'img_url'],
+        attributes: ['id', 'order_date', 'total_price'],
+        order: [['order_date', 'DESC']],
       })
 
-      if (!order) {
-        res.status(404).json({ message: 'no order found with that user id' })
+      const findUser = await User.findOne({
+        where: {
+          id: req.session.user_id,
+        },
+        attributes: ['full_name', 'street_name', 'city', 'state', 'zip_code'],
+      })
+
+      if (!findOrder || !findUser) {
+        res.status(404).json({ message: 'no order or user found' })
         return
       }
 
-      console.log(order)
+      const order = findOrder.get({ plain: true })
+      const user = findUser.get({ plain: true })
 
-      res.render('checkout', { order, logged_in: true })
+      console.log('ORDER: ', order, 'USER: ', user)
+
+      res.render('checkout', { order, user, logged_in: true })
     } catch (err) {
       res.status(500).json(err)
     }
