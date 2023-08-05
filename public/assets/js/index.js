@@ -34,7 +34,6 @@ const deleteOrder = async (id) => {
     method: 'DELETE',
   })
   window.location.replace('/checkout')
-  window.location.replace('/checkout')
 }
 // Toggles shipping text when they are choosing an option
 const changeShippingText = (option) => {
