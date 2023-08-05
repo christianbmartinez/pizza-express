@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![alt text](https://github.com/christianbmartinez/pizza-express/blob/main/public/assets/img/pizza-express.jpg)
 
-# Tech Blog
+# Pizza Express
 
 A full pizza ordering application built with MVC architecture using node, tailwindcss, mysql2, sequelize, express-handlebars, express-session, connect-session-sequelize, and bcrypt
 
