@@ -79,8 +79,6 @@ router.get('/checkout', async (req, res) => {
       const pizza = findPizza.get({ plain: true })
       const user = findUser.get({ plain: true })
 
-      console.log('ORDER: ', order, 'USER: ', user, 'PIZZA: ', pizza)
-
       res.render('checkout', { order, user, pizza, logged_in: true })
     } catch (err) {
       res.status(500).json(err)
