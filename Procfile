@@ -1,1 +1,1 @@
-web: node server.js
+web: sh -c 'npm run seed && npm start'

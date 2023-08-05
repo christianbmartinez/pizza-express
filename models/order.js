@@ -13,7 +13,7 @@ Order.init(
     },
     order_date: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
       defaultValue: DataTypes.NOW,
     },
     total_price: {
