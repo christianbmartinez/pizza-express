@@ -9,10 +9,16 @@
           src='{{pizza.img_url}}'
           alt=''
         />
-        <div class='flex w-full flex-col px-4 py-4'>
+        <div class='flex w-1/2 flex-col px-4 py-4'>
           <span class='font-semibold'>{{pizza.name}}</span>
           <span class='float-right text-gray-400'>No toppings</span>
           <p class='text-lg font-bold'>${{pizza.price}}</p>
+        </div>
+        <div class='flex w-1/2 justify-center items-center flex-col px-4 py-4'>
+          <a
+            class='ml-64 cursor-pointer text-red-600 hover:text-red-700 hover:underline'
+            onclick='deleteOrder({{order.id}})'
+          >Delete</a>
         </div>
       </div>
     </div>
