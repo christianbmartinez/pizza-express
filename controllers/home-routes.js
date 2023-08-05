@@ -47,34 +47,42 @@ router.get('/order-placed', (req, res) => {
 // Checkout route
 router.get('/checkout', async (req, res) => {
   if (req.session.logged_in) {
+    console.log('\x1b[32m Testing /checkout')
     try {
-      const order = await Order.findOne({
+      const findOrder = await Order.findOne({
         where: {
           userId: req.session.user_id,
         },
-        attributes: ['id', 'name', 'description', 'price', 'img_url'],
+        attributes: ['id', 'order_date', 'total_price', 'pizzaId'],
+        order: [['order_date', 'DESC']],
       })
 
-      if (!order) {
-        res.status(404).json({ message: 'no order found with that user id' })
-        return
+      if (findOrder === null) {
+        res.render('checkout', { logged_in: true })
+      } else {
+        const findPizza = await Pizza.findOne({
+          where: {
+            id: findOrder.dataValues.pizzaId,
+          },
+          attributes: ['id', 'name', 'description', 'price', 'img_url'],
+        })
+
+        const findUser = await User.findOne({
+          where: {
+            id: req.session.user_id,
+          },
+          attributes: ['full_name', 'street_name', 'city', 'state', 'zip_code'],
+        })
+
+        const order = findOrder.get({ plain: true })
+        const pizza = findPizza.get({ plain: true })
+        const user = findUser.get({ plain: true })
+
+        res.render('checkout', { order, user, pizza, logged_in: true })
       }
-
-      console.log(order)
-
-      res.render('checkout', { order, logged_in: true })
     } catch (err) {
       res.status(500).json(err)
     }
-  } else {
-    res.render('login')
-  }
-})
-
-// Cart route
-router.get('/cart', (req, res) => {
-  if (req.session.logged_in) {
-    res.render('cart', { logged_in: true })
   } else {
     res.render('login')
   }
