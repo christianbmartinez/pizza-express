@@ -41,14 +41,12 @@ router.post('/:id', async (req, res) => {
         userId: req.session.user_id,
       })
 
-      console.log('Order Created: ', newOrder)
-
-      res.render('checkout', { newOrder, logged_in: true })
+      res.redirect('/checkout')
     } catch (err) {
       res.status(400).json(err)
     }
   } else {
-    res.render('login')
+    res.redirect('login')
   }
 })
 
