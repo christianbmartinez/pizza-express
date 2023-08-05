@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize')
+const sequelize = require('../config/connection')
 
 class Order extends Model {}
 
@@ -28,7 +28,7 @@ Order.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'user', 
+        model: 'user',
         key: 'id',
       },
     },
@@ -36,15 +36,7 @@ Order.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'pizza', 
-        key: 'id',
-      },
-    },
-    paymentId: {
-      type: DataTypes.INTEGER,
-      allowNull: true, 
-      references: {
-        model: 'payment', 
+        model: 'pizza',
         key: 'id',
       },
     },
@@ -56,6 +48,6 @@ Order.init(
     underscored: true,
     modelName: 'order',
   }
-);
+)
 
-module.exports = Order;
+module.exports = Order
