@@ -141,10 +141,18 @@
           {{/each}}
         </div>
       </div>
-      <div>
-        <p class='group-hover:opacity-60 transition duration-500 text-lg font-semibold leading-5 text-gray-800'>
-          ${{pizza.price}}</p>
+      <div class='flex'>
+        <span
+          class='title-font font-medium text-2xl text-gray-900'
+        >${{pizza.price}}</span>
+        <button class='cursor-pointer flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded'
+>        <a
+          onclick='addToCart({{pizza.id}}, {{pizza.price}})'
+        >Checkout &rarr;</a>
+        </button>
       </div>
+    </div>
+    </div>
     </div>
   </div>
 </div>
