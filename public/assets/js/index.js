@@ -1,3 +1,13 @@
+// Show toast notification
+const showToast = (option) => {
+  const toast = document.getElementById('toast')
+  toast.innerText = `🍕 Changed shipping option to ${option}`
+  toast.className = 'show'
+  setTimeout(() => {
+    toast.className = toast.className.replace('show', '')
+  }, 3000)
+}
+
 // Logout the user
 const logout = async () => {
   await fetch('/api/users/logout', {
@@ -40,8 +50,10 @@ const changeShippingText = (option) => {
   const shippingText = document.getElementById('shipping')
   if (option === 1) {
     shippingText.innerText = 'Free Delivery - $0.00'
+    showToast('Free Delivery')
   } else if (option === 2) {
     shippingText.innerText = 'Store Pickup - $0.00'
+    showToast('Store Pickup')
   } else {
     return
   }
